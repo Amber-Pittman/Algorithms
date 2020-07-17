@@ -157,3 +157,22 @@ end = time.time()
 print(f"Runtime: {end - start}")
 
 ```
+
+## Insertion Sorting
+
+Why do we have multiple algos for sorting? It's a great question! If you look at the number of _[sorting array algorithms](https://www.bigocheatsheet.com/#sorting)_ within the Big O Notation Cheatsheet, you will see that there are quite a few options. However, as always, whenever we're looking at any problem to solve, Big O is certainly one thing to look at; but, there's also things like space complexity. 
+
+The other possible answer is because it's purely academic. Sorting algos are kind of a fantastic way to get yourself acquainted with solving algorithms in general. Everyone understands what the goal of sorting is; it's very easy to verify that you've done it correctly. It's a rite of passage. It's a great way to get your mind flowing from a description of a problem and turn it into a functioning version of your own implementation of this algorithm. 
+
+Let's look at how we go about using Insertion Sort to sort an array. We basically say that if anything on the left hand side is sorted and anything on the right side is unsorted. Take a look at the first element on the right side. We can think of it as a _temporary variable_ that we're working with at the moment. Keep moving the temp var to the left and compare it to the number that's in front of it. That way, it can determine if it should go in front of that number or stop where it is. 
+
+For example, we have this array: `[8, 2, 5, 4, 1, 3]`. The 8 is technically already sorted. The 2 is the temporary variable. We check 2 against the 8 and determine that it needs to go in front of the 8. We're basically swapping them. 
+  
+  * The array will now look like this: `[2, 8, 5, 4, 1, 3]`. At this point, the 2 is still the temp var. 
+
+  * If we want to keep this algorithm going, we know for sure that the 2 is sorted in the right spot and we already know that the 2 came from the unsorted side. We can safely say that everything after 8 is now sorted. "Everything past `i` is sorted. Then, `i + 1` is the next value to consider.
+
+  * Rinse and repeat. Compare 8 and 5. They need to be swapped. Now compare 5 against 2. They do not need to be swapped. Start over by comparing 4 against 8. Keep going until the array finishes like this: `[1, 2, 3, 4, 5, 8]`.
+
+  * This is O(n^2) time.
+
