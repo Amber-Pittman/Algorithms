@@ -4,7 +4,9 @@
     "algos",
     "nums",
     "shuffled",
-    "shuffled nums"
+    "shuffled nums",
+    "subarray",
+    "subarrays"
   ],
   "editor.fontLigatures": true
 }
